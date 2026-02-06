@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-cream: #FFFDF1;
+  --color-primary-orange: #FA8112;
+  --color-dark-brown: #562F00;
+  --color-navy: #161E54;
+  
+  /* Palette provided */
+  --color-mango-1: #FFFDF1;
+  --color-mango-2: #FFCE99;
+  --color-mango-3: #FF9644;
+  --color-mango-4: #562F00;
+  --color-mango-5: #1A3263;
+  --color-mango-6: #547792;
+  --color-mango-7: #FAB95B;
+  --color-mango-8: #E8E2DB;
+  --color-mango-9: #FAF3E1;
+  --color-mango-10: #F5E7C6;
+  --color-mango-11: #FA8112;
+  --color-mango-12: #222222;
+  --color-mango-13: #BBE0EF;
+  --color-mango-14: #161E54;
+  --color-mango-15: #F16D34;
+  --color-mango-16: #FF986A;
+  --color-mango-17: #FA5C5C;
+  --color-mango-18: #FD8A6B;
+  --color-mango-19: #FEC288;
+  --color-mango-20: #FBEF76;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  background-color: var(--color-primary-cream);
+  color: var(--color-dark-brown);
+}
+
+@layer base {
+  body {
+    @apply antialiased selection:bg-primary-orange/30;
+    background-color: #FFFDF1;
+  }
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFDF1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FAB95B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FA8112;
+}
