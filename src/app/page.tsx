@@ -168,7 +168,7 @@ export default function Home() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl md:text-8xl lg:text-9xl font-kg text-army-green mb-8 leading-[0.9]">
+              <h2 className="text-5xl md:text-8xl lg:text-9xl font-kg text-army-green mb-40 leading-[0.9] mt-1">
                 Konkan's Golden<br />
                 <span className="block mt-10 text-primary-orange font-kg">
                   Heritage
@@ -272,14 +272,18 @@ export default function Home() {
         </Section>
 
         {/* Process Section with Horizontal Scroll Feel */}
-        <Section id="the-harvest" className="bg-mango-9 py-32 overflow-hidden">
-          <div className="text-center mb-32 relative">
-            <motion.div
-              style={{ x: useTransform(smoothY, [0.3, 0.5], [100, -100]) }}
-              className="absolute top-0 left-(-10) w-full text-[15rem] md:text-[25rem] font-ganttie text-black/5 whitespace-nowrap pointer-events-none select-none"
-            >
-              CRAFTMANSHIP CRAFTMANSHIP
-            </motion.div>
+        <Section id="the-harvest" className="bg-mango-9 py-32 overflow-hidden relative">
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+            <video
+              src="/illustration.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="text-center mb-32 relative z-10">
             <span className="inline-block text-primary-orange font-bold tracking-[0.3em] text-xs md:text-sm mb-4 uppercase relative z-10">
               Our Craft
             </span>
@@ -288,7 +292,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12 mt-16 px-6">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 mt-16 px-6 relative z-10">
             {[
               {
                 title: "Hand-Picked",
@@ -378,36 +382,61 @@ export default function Home() {
         </section>
 
         {/* Quality Comparison / Features */}
-        <Section id="quality" className="bg-primary-cream py-32">
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
-            <div className="sticky top-32">
+        <Section id="quality" className="bg-primary-cream py-32 overflow-hidden relative">
+          <motion.div
+            style={{ x: useTransform(smoothY, [0.4, 0.8], [-200, 200]) }}
+            className="absolute top-0 left-0 w-full text-[8rem] md:text-[12rem] font-ganttie text-black/5 whitespace-nowrap pointer-events-none select-none z-0"
+          >
+            AUTHENTICITY AUTHENTICITY AUTHENTICITY
+          </motion.div>
+
+          <div className="relative z-10">
+            <div className="text-center mb-20">
               <span className="text-primary-orange font-bold tracking-[0.3em] text-sm uppercase mb-6 block">The Difference</span>
-              <h2 className="text-5xl md:text-8xl font-ganttie text-navy mb-8 leading-tight">Why<br />KonkanKart?</h2>
-              <p className="text-xl text-navy/60 font-manrope max-w-md">We don't just sell mangoes; we preserve a legacy of authentic, chemical-free harvesting.</p>
+              <h2 className="text-5xl md:text-8xl lg:text-9xl font-ganttie text-navy mb-8 leading-tight">Why<br />KonkanKart?</h2>
+              <p className="text-xl md:text-2xl text-navy/60 font-manrope max-w-3xl mx-auto">We don't just sell mangoes; we preserve a legacy of authentic, chemical-free harvesting.</p>
             </div>
 
-            <div className="space-y-12">
+            {/* Steps/Cards Container */}
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
               {[
-                { title: "Authenticity", points: ["100% Devgad & Ratnagiri", "GI Certification Verified", "Traceable Origin"] },
-                { title: "Natural Process", points: ["Zero Calcium Carbide", "Traditional Hay-Ripening", "Organic Practices"] },
-                { title: "Premium Care", points: ["Hand-Picked Selection", "Eco-friendly Packaging", "Direct Farm Freshness"] }
+                {
+                  title: "Authenticity",
+                  points: ["100% Devgad & Ratnagiri", "GI Certification Verified", "Traceable Origin"],
+                  icon: "📜"
+                },
+                {
+                  title: "Natural Process",
+                  points: ["Zero Calcium Carbide", "Traditional Hay-Ripening", "Organic Practices"],
+                  icon: "🌾"
+                },
+                {
+                  title: "Premium Care",
+                  points: ["Hand-Picked Selection", "Eco-friendly Packaging", "Direct Farm Freshness"],
+                  icon: "✨"
+                }
               ].map((box, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ delay: i * 0.2, duration: 0.8 }}
                   viewport={{ once: true }}
-                  className="p-10 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] rounded-4xl border border-mango-8 group hover:border-primary-orange/20 transition-all"
+                  className="p-12 bg-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.08)] rounded-[2.5rem] border-2 border-mango-8 group hover:border-primary-orange/30 hover:shadow-[0_40px_100px_-20px_rgba(250,129,18,0.15)] transition-all relative overflow-hidden"
                 >
-                  <h3 className="text-3xl font-ganttie text-navy mb-8 flex items-center justify-between">
+                  <div className="absolute -right-4 -top-4 text-8xl opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all duration-500">
+                    {box.icon}
+                  </div>
+                  <div className="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                    {box.icon}
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-ganttie text-navy mb-6 relative z-10">
                     {box.title}
-                    <span className="w-10 h-0.5 bg-primary-orange/20 group-hover:w-20 transition-all duration-500" />
                   </h3>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 relative z-10">
                     {box.points.map((p, j) => (
-                      <li key={j} className="flex items-center gap-4 text-navy/70 font-manrope">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary-orange" />
+                      <li key={j} className="flex items-center gap-4 text-lg text-navy/70 font-manrope">
+                        <span className="w-2 h-2 rounded-full bg-primary-orange flex-shrink-0" />
                         {p}
                       </li>
                     ))}
@@ -419,7 +448,7 @@ export default function Home() {
         </Section>
 
         {/* Footer with unique wave design or similar */}
-        <footer className="bg-army-green text-primary-cream pt-32 pb-16 px-8 relative overflow-hidden">
+        < footer className="bg-army-green text-primary-cream pt-32 pb-16 px-8 relative overflow-hidden" >
           <div className="absolute top-0 left-0 w-full h-24 overflow-hidden -translate-y-full">
             {/* Custom SVG Wave or transition */}
           </div>
@@ -454,8 +483,8 @@ export default function Home() {
               <a href="#" className="hover:text-white">Terms of Service</a>
             </div>
           </div>
-        </footer>
-      </div>
-    </main>
+        </footer >
+      </div >
+    </main >
   );
 }
