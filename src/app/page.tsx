@@ -110,6 +110,9 @@ import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "fra
 import VideoIntro from "@/components/VideoIntro";
 import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
+import AnnouncementBar from "@/components/AnnouncementBar";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import HorizontalTimeline from "@/components/HorizontalTimeline";
 
 export default function Home() {
   const [introEnded, setIntroEnded] = useState(false);
@@ -131,6 +134,7 @@ export default function Home() {
 
   return (
     <main className="relative bg-primary-cream overflow-x-hidden">
+      <AnnouncementBar show={introEnded} />
       <Navbar show={introEnded} />
 
       {/* Cinematic Video Intro */}
@@ -159,7 +163,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="inline-block text-primary-orange font-bold text-xs md:text-sm mb-6 uppercase"
             >
-              The Origin
+              Our Story
             </motion.span>
 
             <motion.div
@@ -169,9 +173,9 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="text-5xl md:text-8xl lg:text-9xl font-kg text-army-green mb-40 leading-[0.9] mt-1">
-                Konkan's Golden<br />
+                The Authentic<br />
                 <span className="block mt-10 text-primary-orange font-kg">
-                  Heritage
+                  Taste of Konkan
                 </span>
               </h2>
             </motion.div>
@@ -184,7 +188,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-xl md:text-6xl text-navy/60 font-crustaceans italic max-w-4xl mx-auto mt-8 px-6"
             >
-              Where the Arabian Sea whispers to the volcanic soil
+              Bringing the rich heritage and authentic flavors of Konkan to homes across India
             </motion.p>
           </div>
 
@@ -192,12 +196,12 @@ export default function Home() {
             <div className="space-y-12">
               {[
                 {
-                  title: "Legendary Soil",
-                  text: "Nestled in the sun-kissed coastal belt of Maharashtra, our mangoes grow in the legendary soil of Devgad and Ratnagiri—regions blessed with a unique microclimate."
+                  title: "Born from Love",
+                  text: "At Konkan Kart, we're more than just a brand — we're a movement to bring the rich heritage, natural goodness, and authentic flavors of the Konkan region to homes across India."
                 },
                 {
-                  title: "Coastal Breeze",
-                  text: "Each mango is a masterpiece crafted by nature, nurtured by coastal breezes, volcanic soil, and generations of farming wisdom."
+                  title: "Supporting Local Farmers",
+                  text: "Born out of love for our native soil and a deep desire to support local farmers, Konkan Kart was founded to offer pure, chemical-free products that celebrate Konkan's legacy — starting with our signature Devgad Hapus mangoes."
                 }
               ].map((item, i) => (
                 <motion.div
@@ -292,8 +296,8 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12 mt-16 px-6 relative z-10">
-            {[
+          <HorizontalTimeline
+            steps={[
               {
                 title: "Hand-Picked",
                 desc: "Each mango is carefully selected when it reaches the perfect maturity stage. Our farmers know the exact moment.",
@@ -312,31 +316,8 @@ export default function Home() {
                 icon: "🚚",
                 color: "bg-[#F0E5D8]"
               }
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: i * 0.2, ease: "easeOut" }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className={`${step.color} p-12 rounded-[2.5rem] shadow-xl border border-white/20 flex flex-col items-center text-center group relative overflow-hidden`}
-              >
-                <div className="absolute -right-8 -bottom-8 text-[12rem] opacity-5 filter grayscale group-hover:grayscale-0 transition-all duration-700">
-                  {step.icon}
-                </div>
-                <div className="text-7xl mb-10 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500">
-                  {step.icon}
-                </div>
-                <h3 className="text-3xl md:text-4xl font-ganttie text-navy mb-4 relative z-10">
-                  {step.title}
-                </h3>
-                <p className="text-navy/70 text-lg leading-relaxed font-manrope relative z-10">
-                  {step.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+            ]}
+          />
         </Section>
 
         {/* The Taste (Highlight Section) */}
@@ -393,27 +374,27 @@ export default function Home() {
           <div className="relative z-10">
             <div className="text-center mb-20">
               <span className="text-primary-orange font-bold tracking-[0.3em] text-sm uppercase mb-6 block">The Difference</span>
-              <h2 className="text-5xl md:text-8xl lg:text-9xl font-ganttie text-navy mb-8 leading-tight">Why<br />KonkanKart?</h2>
-              <p className="text-xl md:text-2xl text-navy/60 font-manrope max-w-3xl mx-auto">We don't just sell mangoes; we preserve a legacy of authentic, chemical-free harvesting.</p>
+              <h2 className="text-5xl md:text-8xl lg:text-9xl font-ganttie text-navy mb-8 leading-tight">Why Choose<br />Konkan Kart?</h2>
+              <p className="text-xl md:text-2xl text-navy/60 font-manrope max-w-3xl mx-auto">Pure, chemical-free products celebrating Konkan's legacy with every bite.</p>
             </div>
 
             {/* Steps/Cards Container */}
             <div className="grid md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
               {[
                 {
-                  title: "Authenticity",
-                  points: ["100% Devgad & Ratnagiri", "GI Certification Verified", "Traceable Origin"],
-                  icon: "📜"
+                  title: "100% Natural",
+                  points: ["Traditionally Ripened", "Chemical & Carbide Free", "Safe & Healthy"],
+                  icon: "🌿"
                 },
                 {
-                  title: "Natural Process",
-                  points: ["Zero Calcium Carbide", "Traditional Hay-Ripening", "Organic Practices"],
-                  icon: "🌾"
+                  title: "Farm Direct",
+                  points: ["Sourced from Devgad & Ratnagiri", "Fast Doorstep Delivery", "Hygienically Packaged"],
+                  icon: "🚚"
                 },
                 {
-                  title: "Premium Care",
-                  points: ["Hand-Picked Selection", "Eco-friendly Packaging", "Direct Farm Freshness"],
-                  icon: "✨"
+                  title: "Always Available",
+                  points: ["24/7 Customer Support", "Instagram & WhatsApp Orders", "Multiple Payment Options"],
+                  icon: "💬"
                 }
               ].map((box, i) => (
                 <motion.div
@@ -447,6 +428,55 @@ export default function Home() {
           </div>
         </Section>
 
+        {/* Testimonials Section */}
+        <Section id="testimonials" className="bg-mango-9 py-32 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(250,129,18,0.1),transparent_50%)]" />
+          
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-20"
+            >
+              <span className="text-primary-orange font-bold tracking-[0.3em] text-sm uppercase mb-6 block">What Our Customers Say</span>
+              <h2 className="text-5xl md:text-8xl lg:text-9xl font-ganttie text-navy mb-8 leading-tight">Loved By<br />Mango Lovers</h2>
+              <p className="text-xl md:text-2xl text-navy/60 font-manrope max-w-3xl mx-auto">Real reviews from real mango enthusiasts</p>
+            </motion.div>
+
+            <TestimonialsCarousel
+              testimonials={[
+                {
+                  name: "Purvesh Gaikwad",
+                  review: "The sweetness and flavor are unmatched - truly nature's candy! The mangoes arrived on time and were perfectly ripe.",
+                  rating: 5
+                },
+                {
+                  name: "Shilpa Sakhre",
+                  review: "Professional packaging and the taste is absolutely yummy! You can tell these are authentic Alphonso mangoes.",
+                  rating: 5
+                },
+                {
+                  name: "Karan Khot",
+                  review: "Even as an orchard owner myself, I was impressed by how juicy and fragrant these mangoes are. Exceptional quality!",
+                  rating: 5
+                },
+                {
+                  name: "Anita Deshmukh",
+                  review: "Best mangoes I've ever tasted! The natural ripening process really makes a difference. Will order again next season.",
+                  rating: 5
+                },
+                {
+                  name: "Rajesh Kulkarni",
+                  review: "Farm-fresh quality delivered to my doorstep. The aroma alone is worth it! Highly recommend Konkan Kart.",
+                  rating: 5
+                }
+              ]}
+            />
+          </div>
+        </Section>
+
         {/* Footer with unique wave design or similar */}
         < footer className="bg-army-green text-primary-cream pt-32 pb-16 px-8 relative overflow-hidden" >
           <div className="absolute top-0 left-0 w-full h-24 overflow-hidden -translate-y-full">
@@ -454,8 +484,8 @@ export default function Home() {
           </div>
           <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 mb-24 relative z-10">
             <div className="md:col-span-1">
-              <div className="font-ganttie text-5xl mb-8">Konkan<span className="text-primary-orange">Kart</span></div>
-              <p className="text-primary-cream/60 text-lg font-manrope">Authentically Sourced.<br />Naturally Ripened.<br />Delivered with Love.</p>
+              <div className="font-ganttie text-5xl mb-8">KONKAN<span className="text-primary-orange">KART</span></div>
+              <p className="text-primary-cream/60 text-lg font-manrope">More than just a brand — a movement to bring<br />the rich heritage and authentic flavors<br />of Konkan to your doorstep.</p>
             </div>
             <div className="grid grid-cols-2 gap-8 md:col-span-2">
               <div>
@@ -469,9 +499,10 @@ export default function Home() {
               <div>
                 <h4 className="font-bold text-lg mb-6 text-primary-orange">Connect</h4>
                 <ul className="space-y-4 font-manrope text-primary-cream/80">
-                  <li>WhatsApp: +91 81692 46157</li>
-                  <li>Instagram: @konkankart</li>
-                  <li>Mumbai, Maharashtra</li>
+                  <li>📞 +91 81692 46157</li>
+                  <li>📧 konkankartmailbox@gmail.com</li>
+                  <li>📍 Chembur, Mumbai, Maharashtra</li>
+                  <li>📱 Instagram: @konkankart</li>
                 </ul>
               </div>
             </div>

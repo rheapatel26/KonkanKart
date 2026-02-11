@@ -100,9 +100,9 @@ const Navbar: React.FC<NavbarProps> = ({ show }) => {
                         ease: [0.16, 1, 0.3, 1],
                         opacity: { duration: 0.5 }
                     }}
-                    className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 md:px-12 py-4 ${isScrolled
-                        ? 'bg-primary-cream/95 backdrop-blur-xl shadow-lg border-b border-mango-8'
-                        : 'bg-transparent'
+                    className={`fixed left-0 w-full z-40 transition-all duration-500 px-6 md:px-12 py-4 ${isScrolled
+                        ? 'top-0 bg-primary-cream/95 backdrop-blur-xl shadow-lg border-b border-mango-8'
+                        : 'top-12 bg-transparent'
                         }`}
                 >
                     <div className="max-w-7xl mx-auto flex justify-between items-center">
