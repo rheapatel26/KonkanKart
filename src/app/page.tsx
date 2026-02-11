@@ -155,7 +155,7 @@ export default function Home() {
 
         {/* Origin Story */}
         <Section id="our-story" className="bg-linear-to-b from-primary-cream to-mango-9 py-24 md:py-32">
-          <div className="text-center mb-24">
+          <div className="text-center mb-24 mt-10">
             <motion.span
               initial={{ opacity: 0, letterSpacing: "0.5em" }}
               whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
@@ -276,7 +276,7 @@ export default function Home() {
         </Section>
 
         {/* Process Section with Horizontal Scroll Feel */}
-        <Section id="the-harvest" className="bg-mango-9 py-32 overflow-hidden relative">
+        <Section id="the-harvest" className="bg-mango-9 py-32 overflow-hidden relative" contentClassName="max-w-[85%] mx-auto">
           <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
             <video
               src="/illustration.mp4"
@@ -291,7 +291,7 @@ export default function Home() {
             <span className="inline-block text-primary-orange font-bold tracking-[0.3em] text-xs md:text-sm mb-4 uppercase relative z-10">
               Our Craft
             </span>
-            <h2 className="text-5xl md:text-8xl lg:text-9xl font-ganttie text-navy mb-8 relative z-10 leading-[0.9]">
+            <h2 className="text-5xl md:text-8xl lg:text-9xl font-ganttie text-navy mb-50 relative z-10 leading-[0.9]">
               Nature's Timeline
             </h2>
           </div>
@@ -431,7 +431,7 @@ export default function Home() {
         {/* Testimonials Section */}
         <Section id="testimonials" className="bg-mango-9 py-32 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(250,129,18,0.1),transparent_50%)]" />
-          
+
           <div className="relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

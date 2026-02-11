@@ -38,6 +38,7 @@ import { motion, useInView } from 'framer-motion';
 interface SectionProps {
     children: React.ReactNode;
     className?: string;
+    contentClassName?: string;
     id?: string;
     delay?: number;
 }
@@ -45,6 +46,7 @@ interface SectionProps {
 const Section: React.FC<SectionProps> = ({
     children,
     className = "",
+    contentClassName = "",
     id,
     delay = 0
 }) => {
@@ -65,7 +67,7 @@ const Section: React.FC<SectionProps> = ({
                     delay: delay,
                     ease: [0.22, 1, 0.36, 1]
                 }}
-                className="max-w-6xl w-full"
+                className={`w-full ${contentClassName || 'max-w-6xl'}`}
             >
                 {children}
             </motion.div>
