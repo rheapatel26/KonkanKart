@@ -194,8 +194,8 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
                             whileHover={{ scale: 1.2 }}
                             whileTap={{ scale: 0.9 }}
                             className={`transition-all ${index === currentIndex
-                                    ? "w-12 h-3 bg-primary-orange"
-                                    : "w-3 h-3 bg-navy/20 hover:bg-navy/40"
+                                ? "w-12 h-3 bg-primary-orange"
+                                : "w-3 h-3 bg-navy/20 hover:bg-navy/40"
                                 } rounded-full`}
                         />
                     ))}

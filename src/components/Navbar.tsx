@@ -60,6 +60,7 @@
 // export default Navbar;
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 
 interface NavbarProps {
@@ -113,16 +114,21 @@ const Navbar: React.FC<NavbarProps> = ({ show }) => {
                             whileHover={{ scale: 1.05 }}
                             className="flex items-center z-10"
                         >
-                            <div className="font-ganttie text-2xl md:text-3xl text-army-green tracking-tight">
-                                Konkan<span className="text-primary-orange">Kart</span>
-                            </div>
+                            <Image
+                                src="/images/logo.png"
+                                alt="KonkanKart Logo"
+                                width={150}
+                                height={50}
+                                className="h-22 md:h-22 w-auto"
+                                priority
+                            />
                         </motion.div>
 
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
-                            className="hidden md:flex items-center space-x-8 text-navy/80 font-manrope font-medium"
+                            className="hidden md:flex items-center space-x-8 text-navy/80 font-manrope font-medium text-xl"
                         >
                             {['Our Story', 'The Harvest', 'Quality', 'Testimonials'].map((item, i) => (
                                 <motion.a
